@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Render</title>
+</head>
+
+<body>
+  <div id="foo"></div>
+  <div id="bar"></div>
+  <script>
+    const foo = document.getElementById("foo");
+    const bar = document.getElementById("bar");
+
+    console.time();
+    const h1 = document.createElement("h1");
+    const text = "foo";
+    h1.innerHTML = text;
+    foo.appendChild(h1);
+    console.timeEnd();
+
+    console.time();
+    const h1Str = `<h1>${text}</h1>`;
+    bar.insertAdjacentHTML("beforeend", h1Str);
+    console.timeEnd();
+  </script>
+</body>
+
+</html>
